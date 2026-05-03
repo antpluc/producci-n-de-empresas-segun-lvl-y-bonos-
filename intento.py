@@ -85,7 +85,7 @@ def calcular(tipo, nivel, bonus):
 st.sidebar.header("🏭 Empresa 1")
 
 tipo1 = st.sidebar.selectbox("Tipo E1", TIPOS, key="t1")
-nivel1 = st.sidebar.slider("Nivel E1", 2, 7, 5, key="n1")
+nivel1 = st.sidebar.slider("Nivel E1", 1, 7, 5, key="n1")
 bonus1 = st.sidebar.number_input("Bono E1 (%)", value=0.0, step=0.01, key="b1")
 
 # ==========================
@@ -95,7 +95,7 @@ bonus1 = st.sidebar.number_input("Bono E1 (%)", value=0.0, step=0.01, key="b1")
 st.sidebar.header("🏭 Empresa 2")
 
 tipo2 = st.sidebar.selectbox("Tipo E2", TIPOS, key="t2")
-nivel2 = st.sidebar.slider("Nivel E2", 2, 7, 4, key="n2")
+nivel2 = st.sidebar.slider("Nivel E2", 1, 7, 4, key="n2")
 bonus2 = st.sidebar.number_input("Bono E2 (%)", value=0.0, step=0.01, key="b2")
 
 # ==========================
