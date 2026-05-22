@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="WarEra Simulador PRO", layout="wide")
 
-st.title("WarEra, haz que tus empresas camellen")
+st.title("🏭 WarEra Simulador Multiempresa Avanzado")
 
 # ==========================
 # TIPOS
@@ -85,7 +85,7 @@ def calcular(tipo, nivel, bonus):
 st.sidebar.header("🏭 Empresa 1")
 
 tipo1 = st.sidebar.selectbox("Tipo E1", TIPOS, key="t1")
-nivel1 = st.sidebar.slider("Nivel E1", 2, 7, 5, key="n1")
+nivel1 = st.sidebar.slider("Nivel E1", 1, 7, 5, key="n1")
 bonus1 = st.sidebar.number_input("Bono E1 (%)", value=0.0, step=0.01, key="b1")
 
 # ==========================
@@ -95,7 +95,7 @@ bonus1 = st.sidebar.number_input("Bono E1 (%)", value=0.0, step=0.01, key="b1")
 st.sidebar.header("🏭 Empresa 2")
 
 tipo2 = st.sidebar.selectbox("Tipo E2", TIPOS, key="t2")
-nivel2 = st.sidebar.slider("Nivel E2", 2, 7, 4, key="n2")
+nivel2 = st.sidebar.slider("Nivel E2", 1, 7, 4, key="n2")
 bonus2 = st.sidebar.number_input("Bono E2 (%)", value=0.0, step=0.01, key="b2")
 
 # ==========================
@@ -137,23 +137,32 @@ if tipo1 == tipo2:
 else:
     st.warning("⚠️ Tipos distintos: no se suman directamente")
 
+# ==========================
+# INFO
+# ==========================
 
-# =====================================================
-# FOOTER
-# =====================================================
+with st.expander("📘 Reglas"):
+    st.write("""
+    Producción diaria = nivel × 24
 
-st.markdown("""
-<hr style="border:1px solid #30363d; margin-top:40px;">
+    Recursos base:
+    1 punto = piedra, trigo, hierro, plomo, coca
 
-<div style="
-text-align:center;
-color:#8b949e;
-font-size:14px;
-padding:20px;
-">
+    Procesados:
+    Concreto = 10 puntos + 10 piedra  
+    Vigas = 10 puntos + 10 hierro  
 
-Developed by <b>Antonio Pluas</b><br>
-War Era Ecuadorian company© 2026
+    Balas = 1 punto + 1 plomo  
+    BalasX = 4 puntos + 4 plomo  
+    BalasXX = 16 puntos + 16 plomo  
 
-</div>
-""", unsafe_allow_html=True)
+    Pan = 10 puntos + 10 trigo  
+
+    Vacas = 20 puntos  
+    Carne = 20 puntos + 1 vaca  
+
+    Peces = 40 puntos  
+    Pescado = 40 puntos + 1 pez  
+
+    Pastillas = 200 hojas + 200 puntos  
+    """)
